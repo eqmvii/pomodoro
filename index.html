@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Pomodoro Clock</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="pomostyle.css" />
+        <meta charset="utf-8" />
+        <title>Pomodoro Clock: Rough Draft</title>
+    </head>
+
+    <body id="body">
+        <div id="container">
+            <div class="centered">
+                <h2>Pomodoro Clock</h2>
+            </div>
+            <div class="box" id="workbox">
+                <p class="temp">Work Timer</p>
+                <p>
+                    <button class="temp" id="wmin">-</button>
+                    <button class="temp" id="wplus">+</button>
+                </p>
+                <p id="worktime" class="time">25:00</p>
+            </div>
+            <div class="box" id="breakbox">
+                <p class="temp">Break Timer</p>
+                <p>
+                    <button class="temp" id="bmin">-</button>
+                    <button class="temp" id="bplus">+</button>
+                </p>
+                <p id="breaktime" class="time">5:00</p>
+            </div>
+
+            <div class="timer clear" id="go">
+                <p id="timertext" class="time">Begin Timer</div>
+            <br />
+            <br />
+            <div class="end">
+                <p>Use the timers to select the length of your break and work segments. </p>
+                <p>For more information on the pomodoro technique, see
+                    <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">here</a>.</p>
+                <p>Press the button below to speed up time for testing. Press again to return to normal time.</p>
+            </div>
+            <p class="centered">
+                <button id="fast" class="centered">Speed Up Time</button>
+            </p>
+        </div>
+
+
+        <audio id="workaudio">
+            <source src="http://www.noiseaddicts.com/samples_1w72b820/3724.mp3" type="audio/mp3" />
+        </audio>
+        <audio id="breakaudio">
+            <source src="http://www.noiseaddicts.com/samples_1w72b820/3724.mp3" type="audio/mp3" />
+        </audio>
+
+    </body>
+
+    </html>
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>

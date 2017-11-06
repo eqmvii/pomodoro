@@ -1,0 +1,117 @@
+body
+{
+    background-color:#fffad4;
+    font-size: 16px;
+}
+
+#container
+{
+    width: 300px;
+    height: 600px;   
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+    padding: 6px;
+
+}
+
+.box
+{
+    margin: 7px;
+    padding: 6px;
+    border-radius: 6px;
+    border: 2px solid black;
+    width: 120px;
+    height: 150px;
+    float: left;
+    text-align: center;
+}
+
+.clear
+{
+    clear: left;
+}
+
+.timer
+{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;    
+    padding: 6px;
+    text-align: center;
+    box-shadow: 8px 8px 3px #888888;
+    font-weight: bold;
+}
+
+.timer:hover
+{
+    cursor: pointer;
+}
+
+.timer:active
+{
+    cursor: pointer;
+    box-shadow: 2px 2px 1px #888888;
+}
+
+#timertext
+{
+    line-height: 100px;
+}
+
+.centered
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.active
+{
+    background-color: green;
+}
+
+.hidden
+{
+    /*display: none;*/
+    visibility: hidden;
+}
+
+button
+{
+    width: 40px;
+    margin: 1px;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.time
+{
+    font-size: 20px;
+}
+
+.end
+{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+button
+{
+    border-radius: 4px;
+}
+
+.flashy
+{
+    background-color: #ff0000;
+}
+
+button#fast
+{
+    width: 120px;
+    height: 30px;
+}
