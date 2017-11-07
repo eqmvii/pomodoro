@@ -1,30 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans');
 body
 {
-    background-color:#fffad4;
+    /* from pexels.com free stock photos */
+    background-color: #ffffff;
+    background-image: url(../img/pomodorobg.jpg);
     font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #2d2c31;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0a16b9;
+    font-family: 'Fredoka One', serif;
 }
 
 #container
 {
-    width: 300px;
-    height: 600px;   
+    width: 440px;   
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 6px;
-    padding: 6px;
-
+    border-radius: 60px;
+    padding: 10px 20px 5px 20px;
+    border: 2px solid #0a16b9;
+    background-color: white;
 }
 
 .box
 {
-    margin: 7px;
+    margin-top: 30px;
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-bottom: 60px;
     padding: 6px;
     border-radius: 6px;
-    border: 2px solid black;
+    border: 2px solid #0a16b9;
     width: 120px;
     height: 150px;
     float: left;
     text-align: center;
+    background-color: #24a2b3;
+    color: white;
 }
 
 .clear
@@ -34,16 +51,18 @@ body
 
 .timer
 {
-    height: 150px;
-    width: 150px;
+    height: 140px;
+    width: 140px;
     border-radius: 150px;
-    border: 2px solid black;
+    border: 2px solid #0a16b9;
     margin-left: auto;
     margin-right: auto;    
     padding: 6px;
     text-align: center;
-    box-shadow: 8px 8px 3px #888888;
+    box-shadow: 6px 6px 2px #5f5f5f;
     font-weight: bold;
+    background-color: #24a2b3;
+    color: white;    
 }
 
 .timer:hover
@@ -80,17 +99,72 @@ body
     visibility: hidden;
 }
 
-button
-{
-    width: 40px;
-    margin: 1px;
-    padding: 2px;
-    font-weight: bold;
-}
+
+.button {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 60px;
+    font-family: monospace;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 5px 20px 10px 20px;
+    border: solid #000000 1px;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .control-button {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 8px 12px 8px 12px;
+    border: solid #000000 1px;
+    text-decoration: none;
+  }
+  
+  .control-button:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+    cursor: pointer;
+   
+  }
 
 .time
 {
     font-size: 20px;
+    font-family: monospace;
 }
 
 .end
@@ -107,7 +181,12 @@ button
 
 .flashy
 {
-    background-color: #ff0000;
+    /* background-color: #ff0000; */
+    background-image: none;
+}
+
+.notify {
+    background-color: rgb(149, 255, 250) !important;
 }
 
 button#fast

@@ -1,7 +1,7 @@
 // pomodoro.js
-// rough draft pomodoro clock in JavaScript
+// Pomodoro clock in vanilla JavaScript by Eric Mancini
 
-console.log("script link succesful!");
+// console.log("script link succesful!");
 
 // store global variables in one object
 var papp = {};
@@ -14,36 +14,39 @@ papp.wplus = document.getElementById("wplus");
 papp.worktime = document.getElementById("worktime");
 papp.go = document.getElementById("go");
 papp.timertext = document.getElementById("timertext");
+papp.container = document.getElementById("container");
 
 papp.body = document.getElementById("body");
 papp.tohide = document.querySelectorAll(".temp");
 papp.fast = document.getElementById("fast");
 papp.workdown;
 papp.breakdown;
-papp.running = false; // if button has been pressed
+papp.running = false; // boolean to track if the start button has been pressed
 
-// keep track of timers
-papp.timers = [5, 25];
+// keep track of times set for each timer
+papp.timers = [5, 15];
 
-papp.delay = 1000; // default second count
+// default unit of time, i.e. how many miliseconds are in a second
+papp.delay = 1000; 
 
+function drawScreen() {
+    papp.breaktime.innerHTML = "" + papp.timers[0] + ":00";
+    papp.worktime.innerHTML = "" + papp.timers[1] + ":00";
+    papp.timertext.innerHTML = "Start";
+}
+
+// toggle between normal time and fast time
 papp.fast.addEventListener("click", function () {
     if (papp.delay === 1000) {
         papp.delay = 5;
-        papp.fast.innerHTML = "Slow Down Time";
+        papp.fast.innerHTML = "Normal";
     }
     else
     {
         papp.delay = 1000;
-        papp.fast.innerHTML = "Speed Up Time";
+        papp.fast.innerHTML = "Faster";
     }
 });
-
-var drawScreen = function () {
-    papp.breaktime.innerHTML = "" + papp.timers[0] + ":00";
-    papp.worktime.innerHTML = "" + papp.timers[1] + ":00";
-    papp.timertext.innerHTML = "Begin Timer";
-}
 
 papp.bmin.addEventListener("click", function () {
     if (!papp.running) {
@@ -83,6 +86,8 @@ papp.wplus.addEventListener("click", function () {
 
 papp.go.addEventListener("click", function () {
     // workaround for slow audio load
+    // A much better workaround would be jQuery's ready function
+    // this is dated / from when I was just learning about the DOM
     papp.workaudio = document.getElementById("workaudio");
     papp.breakaudio = document.getElementById("breakaudio");
     //console.log("Workaudio: " + workaudio + " papp.workaudio: " + papp.workaudio);
@@ -103,12 +108,16 @@ papp.go.addEventListener("click", function () {
         for (let i = 0; i < papp.tohide.length; i++) {
             papp.tohide[i].className = "temp";
         }
+        papp.bmin.className = "control-button";
+        papp.wmin.className = "control-button";
+        papp.bplus.className = "control-button";
+        papp.wplus.className = "control-button";
+        
     }
         
 });
 
-var countdown = function ()
-{
+function countdown() {
     if (!papp.running)
     {
         //audio.pause();
@@ -116,7 +125,7 @@ var countdown = function ()
         return;
     }
     papp.breaktime.innerHTML = "";
-    papp.worktime.innerHTML = "Work!";
+    papp.worktime.innerHTML = "<strong>Work!</strong>";
     papp.workdown -= 1;
     papp.timertext.innerHTML = "" + parse_time(papp.workdown);    
     //console.log(parse_time(papp.workdown));
@@ -129,6 +138,8 @@ var countdown = function ()
     else 
     {
         body.setAttribute('class', "flashy");
+        papp.container.setAttribute ('class', "notify");
+        console.log(papp.container.className);
         setTimeout(function () {
             revert();
         }, 500);
@@ -137,12 +148,12 @@ var countdown = function ()
     }
 };
 
-var breakdown = function () {
+function breakdown() {
     if (!papp.running) {
         drawScreen();
         return;
     }
-    papp.breaktime.innerHTML = "Break!";
+    papp.breaktime.innerHTML = "<strong>Break!</strong>";
     papp.worktime.innerHTML = "";
     papp.breakdown -= 1;
     if (papp.breakdown % 10 === 0)
@@ -158,9 +169,11 @@ var breakdown = function () {
     }
     else {
         body.setAttribute('class', "flashy");
+        papp.container.setAttribute ('class', "notify");
+        console.log(papp.container.className);
         setTimeout(function () {
             revert();
-        }, 500);
+        }, 1000);
         papp.workdown = papp.timers[1] * 60;
         papp.breakdown = papp.timers[0] * 60;
         papp.workaudio.play();
@@ -168,8 +181,7 @@ var breakdown = function () {
     }
 };
 
-var parse_time = function(total_seconds)
-{
+function parse_time(total_seconds) {
     let seconds = total_seconds % 60;
     if (seconds < 10)
     {
@@ -179,9 +191,10 @@ var parse_time = function(total_seconds)
     return "" + minutes + ":" + seconds;
 }
 
-drawScreen();
-
-var revert = function()
-{
+function revert () {
     body.removeAttribute("class", "flashy");
+    papp.container.removeAttribute("class", "notify");
 }
+
+// begin the app watching/running timers
+drawScreen();
