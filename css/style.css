@@ -194,3 +194,7 @@ button#fast
     width: 120px;
     height: 30px;
 }
+
+.clearbg {
+    background-color: transparent !important;
+}

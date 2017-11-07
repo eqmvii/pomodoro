@@ -15,6 +15,8 @@ papp.worktime = document.getElementById("worktime");
 papp.go = document.getElementById("go");
 papp.timertext = document.getElementById("timertext");
 papp.container = document.getElementById("container");
+papp.workbox = document.getElementById("workbox");
+papp.breakbox = document.getElementById("breakbox");
 
 papp.body = document.getElementById("body");
 papp.tohide = document.querySelectorAll(".temp");
@@ -90,6 +92,9 @@ papp.go.addEventListener("click", function () {
     // this is dated / from when I was just learning about the DOM
     papp.workaudio = document.getElementById("workaudio");
     papp.breakaudio = document.getElementById("breakaudio");
+    papp.breakbox.classList.remove("clearbg");
+    papp.workbox.classList.remove("clearbg");
+    
     //console.log("Workaudio: " + workaudio + " papp.workaudio: " + papp.workaudio);
     if (!papp.running) {
         papp.running = true;
@@ -125,6 +130,8 @@ function countdown() {
         return;
     }
     papp.breaktime.innerHTML = "";
+    papp.breakbox.classList.add("clearbg");
+    papp.workbox.classList.remove("clearbg");    
     papp.worktime.innerHTML = "<strong>Work!</strong>";
     papp.workdown -= 1;
     papp.timertext.innerHTML = "" + parse_time(papp.workdown);    
@@ -138,7 +145,7 @@ function countdown() {
     else 
     {
         body.setAttribute('class', "flashy");
-        papp.container.setAttribute ('class', "notify");
+        // papp.container.setAttribute ('class', "notify");
         console.log(papp.container.className);
         setTimeout(function () {
             revert();
@@ -153,13 +160,12 @@ function breakdown() {
         drawScreen();
         return;
     }
+    papp.workbox.classList.add("clearbg");
+    papp.breakbox.classList.remove("clearbg");    
     papp.breaktime.innerHTML = "<strong>Break!</strong>";
     papp.worktime.innerHTML = "";
     papp.breakdown -= 1;
-    if (papp.breakdown % 10 === 0)
-    {
-        papp.timertext.innerHTML = "" + parse_time(papp.breakdown);    
-    }
+    papp.timertext.innerHTML = "" + parse_time(papp.breakdown);    
     
     //console.log(parse_time(papp.breakdown));
     if (papp.breakdown > 0) {
@@ -169,11 +175,13 @@ function breakdown() {
     }
     else {
         body.setAttribute('class', "flashy");
-        papp.container.setAttribute ('class', "notify");
+        // papp.container.setAttribute ('class', "notify");
         console.log(papp.container.className);
         setTimeout(function () {
             revert();
         }, 1000);
+
+        // reset timers
         papp.workdown = papp.timers[1] * 60;
         papp.breakdown = papp.timers[0] * 60;
         papp.workaudio.play();
@@ -181,6 +189,7 @@ function breakdown() {
     }
 };
 
+// take a number of seconds, return a stopwatch-style string to display
 function parse_time(total_seconds) {
     let seconds = total_seconds % 60;
     if (seconds < 10)
@@ -193,7 +202,7 @@ function parse_time(total_seconds) {
 
 function revert () {
     body.removeAttribute("class", "flashy");
-    papp.container.removeAttribute("class", "notify");
+    // papp.container.removeAttribute("class", "notify");
 }
 
 // begin the app watching/running timers
