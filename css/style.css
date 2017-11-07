@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans');
+
 body
 {
     /* from pexels.com free stock photos */
@@ -6,8 +7,7 @@ body
     background-image: url(../img/pomodorobg.jpg);
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-    color: #2d2c31;
-    
+    color: #2d2c31;    
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -98,7 +98,6 @@ h1, h2, h3, h4, h5, h6 {
     /*display: none;*/
     visibility: hidden;
 }
-
 
 .button {
     background: #3498db;
